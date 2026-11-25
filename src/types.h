@@ -9,6 +9,12 @@ typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned int u32;
 
-typedef unsigned long size_t;
+typedef unsigned int size_t;
+
+// #if __STDC_VERSION__ < 202311L
+// typedef _Bool bool;
+// #define true  1
+// #define false 0
+// #endif
 
 #endif

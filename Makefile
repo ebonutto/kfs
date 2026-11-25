@@ -5,7 +5,7 @@ LD      = ld
 
 # 32-bit freestanding build (no libc, no host headers)
 CFLAGS  = -m32 -ffreestanding -fno-builtin -fno-stack-protector \
-          -nostdlib -nodefaultlibs -Wall -Wextra -Werror
+          -nostdlib -nodefaultlibs -Wall -Wextra -Werror -masm=intel
 ASFLAGS = -f elf32
 LDFLAGS = -m elf_i386 -T linker.ld -nostdlib
 
