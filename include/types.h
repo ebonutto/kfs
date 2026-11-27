@@ -11,10 +11,4 @@ typedef unsigned int u32;
 
 typedef unsigned int size_t;
 
-// #if __STDC_VERSION__ < 202311L
-// typedef _Bool bool;
-// #define true  1
-// #define false 0
-// #endif
-
 #endif

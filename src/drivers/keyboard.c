@@ -113,7 +113,7 @@ char keyboard_getchar(void)
 		g_kbd_state.alt = !released;
 		return (0);
 	default:
-		break;
+		break ;
 	}
 
 	if (released || scancode >= sizeof(keymap))
