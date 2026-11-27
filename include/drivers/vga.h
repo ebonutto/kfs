@@ -3,8 +3,11 @@
 
 #include "types.h"
 
-#define VGA_WIDTH 80
+#define VGA_WIDTH  80
 #define VGA_HEIGHT 25
+#define VGA_SIZE   (VGA_WIDTH * VGA_HEIGHT)
+
+#define NB_SCREENS 4
 
 typedef enum s_vga_color {
 	VGA_BLACK = 0,
@@ -27,15 +30,22 @@ typedef enum s_vga_color {
 
 typedef struct s_vga {
 	volatile u16 *buffer;
-	size_t row; // u8 ?
-	size_t col; // u8 ?
+	size_t row;
+	size_t col;
 	u8 color;
 } t_vga;
 
-void vga_init(t_vga *v);
-void vga_clear(t_vga *v);
-void vga_set_color(t_vga *v, t_vga_color fg, t_vga_color bg);
+/* Global state, defined in vga.c */
+extern t_vga  g_screens[NB_SCREENS];
+extern size_t g_current_screen;
+
+/* Driver */
+void vga_init(void);
 void vga_putchar(t_vga *v, char c);
-void vga_putstr(t_vga *vga, const char *str);
+void vga_putstr(t_vga *v, const char *str);
+
+/* Screen management */
+// void   vga_switch_screen(size_t index);
+t_vga *vga_current(void);
 
 #endif
