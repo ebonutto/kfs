@@ -2,18 +2,19 @@
 
 void kmain(void)
 {
-	int key;
+	char c;
 
 	vga_init();
-	vga_putstr(vga_current(), "42");
+	screen_putstr(screen_current(), "Hello 42 !\n");
 
 	while (1) {
-		key = keyboard_getkey();
-		if (!key)
+		c = keyboard_getchar();
+		if (!c)
 			continue ;
-		if (keyboard_macro(key))
+		if (keyboard_macro(c))
 			continue ;
-		if (key < 0x100)
-			vga_putchar(vga_current(), (char)key);
+		if (keyboard_ctrl() || keyboard_alt())
+			continue ;
+		screen_putchar(screen_current(), c);
 	}
 }
