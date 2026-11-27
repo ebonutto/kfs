@@ -44,7 +44,7 @@ static void screen_clear(t_screen *s)
 /* The buffer must be set by the caller before calling this */
 static void screen_init(t_screen *s)
 {
-	screen_set_color(s, VGA_WHITE, VGA_BLACK);
+	screen_set_color(s, VGA_GREEN, VGA_BLACK);
 	screen_clear(s);
 }
 
